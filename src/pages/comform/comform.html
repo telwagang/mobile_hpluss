@@ -1,0 +1,60 @@
+<ion-header color="trasparent">
+    <ion-navbar color="transparent">
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-buttons end>
+            <ion-spinner *ngIf="spinner" color="white"></ion-spinner>
+
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content fullscreen="true">
+    <ion-grid class="top">
+        <ion-row justify-content-center>
+            <div class="space">
+                <div *ngIf="done">
+                    <div class="name">
+                        <p>hey, {{name}} </p>
+                    </div>
+                    <div>
+                        <ion-item class="welcome" color="trasparent">
+                            <ion-icon name="checkmark-circle" item-left></ion-icon>
+                            <p> Thank you for your Booking</p>
+                        </ion-item>
+                    </div>
+                </div>
+            </div>
+        </ion-row>
+        <ion-row justify-content-center>
+            <ion-col col-4>
+                <div class="box">
+                    <ion-label class="big">{{day}}</ion-label>
+                    <ion-label stacked>{{date}}</ion-label>
+                    <ion-label class="bottom" color="borders">{{time}}</ion-label>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <div padding>
+        <div class="push">
+            <div>
+                <h4>
+                    {{Item.specialty}}
+                </h4>
+            </div>
+            <div>
+                <p>
+                    {{Item.name}}
+                </p>
+            </div>
+        </div>
+        <ion-item detail-push>
+            Change Appointment
+        </ion-item>
+        <ion-item no-lines detail-push>
+            View Direction
+        </ion-item>
+        <button ion-button full color="dark" item-right (click)="add()">Add To Calendar</button>
+    </div>
+</ion-content>

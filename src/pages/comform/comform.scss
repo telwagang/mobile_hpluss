@@ -1,0 +1,66 @@
+comform {
+    ion-content .scroll-content {
+        padding-top: 0px !important;
+        overflow: hidden !important;
+    }
+    ion-navbar .toolbar-background {
+        background: transparent !important;
+        border: none !important;
+    }
+    .top {
+        padding-top: 18% !important;
+        padding-bottom: 10% !important;
+        background-color: map-get($colors, dark);
+        background-image: url('../assets/images/comf.png');
+        background-size: cover;
+        background-position: center;
+    }
+    .space {
+        margin-bottom: 40% !important;
+        margin-top: 20%;
+    }
+    .name {
+        p {
+            color: map-get($colors, light);
+        }
+    }
+    .welcome {
+        color: map-get($colors, white);
+        background-color: map-get($colors, transparent);
+        opacity: 1;
+        border: 2px solid map-get($colors, light);
+        ion-icon {
+            color: map-get($colors, secondary);
+            // background-color: map-get($colors, white);
+        }
+        div {
+            border: none !important;
+        }
+    }
+    .box {
+        background-color: map-get($colors, white);
+        text-align: center;
+        margin: -25px;
+        padding-top: 15px;
+        border: 1px solid map-get($colors, light);
+        margin-bottom: -80%;
+    }
+    .push {
+        padding-top: 15% !important;
+        text-align: center;
+    }
+    .bottom {
+        background-color: map-get($colors, secondary);
+        width: 100%;
+        color: map-get($colors, white);
+        padding: 6px;
+        margin-bottom: -1.5px;
+        font-size: 800;
+    }
+    .big {
+        padding-top: 10px;
+        font-size: 30pt;
+        color: map-get($colors, textdark);
+    }
+    $label-ios-margin: 0px 0px 0px 0px;
+}

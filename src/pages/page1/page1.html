@@ -1,0 +1,73 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title color="white"> H o m e</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content fullscreen="true" color="background">
+    <ion-grid class="top">
+        <ion-row justify-content-center>
+            <ion-card>
+                <ion-card-header>
+                    <h2 stacked color="text">Welcome</h2>
+                </ion-card-header>
+                <ion-card-content>
+                    <ion-row padding-bottom>
+                        <ion-col item-rigth>
+                            <h3 color="text">Thanks, {{name}}</h3>
+
+                        </ion-col>
+                        <ion-col item-left (click)="move('apppointment')">
+                            <div>
+                                <h3 color="text">23m</h3>
+                                <h6>upcoming apppointment</h6>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                </ion-card-content>
+            </ion-card>
+
+        </ion-row>
+        <ion-row>
+            <ion-col no-padding>
+                <ion-card (click)="move('book')">
+                    <ion-card-content>
+                        <ion-icon color="secondary" name="book"></ion-icon>
+                        <h3 color="text" padding-top padding-bottom>Book Now </h3>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+            <ion-col no-padding>
+                <ion-card (click)="move('history')">
+                    <ion-card-content>
+                        <ion-icon color="secondary" name="timer"></ion-icon>
+                        <h3 color="text" padding-top padding-bottom>Past Booking </h3>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row ustify-content-center>
+            <ion-col no-padding>
+                <ion-card (click)="move('account')">
+                    <ion-card-content>
+                        <ion-icon color="secondary" name="contact"></ion-icon>
+                        <h3 color="text" padding-top padding-bottom> My Details </h3>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+            <ion-col no-padding>
+                <ion-card (click)="logout()">
+
+                    <ion-card-content>
+                        <ion-icon color="secondary" name="power"></ion-icon>
+                        <h3 color="text" padding-top padding-bottom>Log Out </h3>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+</ion-content>

@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-navbar color="white">
+        <div>
+            <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+            <ion-buttons end>
+                <button ion-button icon-only>
+      <ion-spinner *ngIf="spinner" color="textdark"></ion-spinner>
+      
+      </button>
+            </ion-buttons>
+        </div>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div ion-item class="top" color="white">
+        <ion-label color item-left>{{search.specialty}}</ion-label>
+        <ion-label></ion-label>
+        <ion-label item-right>{{day}}</ion-label>
+    </div>
+    <ion-list insert color="background">
+        <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+            <div class="d" item-left>
+               <p class="d"> {{item.distance}} </p>
+               <p>{{item.duration}}</p>
+            </div>
+      <ion-grid no-padding >
+        <ion-row >
+          <div class="t">
+         <p class="t">{{item.name}}</p>
+        </div>
+        </ion-row>
+      <ion-row align-self-stretch>
+          <div class="d">
+          <p class="d">{{item.day}} </p>
+          </div>
+          <div class="p">
+           <p class="p"> {{item.place}} </p>
+          </div>
+        </ion-row>
+      </ion-grid>
+      <div class="item-note t" item-right>
+       <p class="t"> {{item.time}}</p>
+      </div>
+    </button>
+    </ion-list>
+    <div *ngIf="selectedItem" padding>
+        You navigated here from <b>{{selectedItem.title}}</b>
+    </div>
+</ion-content>

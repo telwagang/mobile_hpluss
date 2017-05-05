@@ -1,0 +1,91 @@
+<ion-header>
+    <ion-navbar color="transparent">
+        <ion-title color="primary">{{authType}}</ion-title>
+        <ion-buttons end>
+            <ion-spinner *ngIf="spinner" color="secondary"></ion-spinner>
+
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content fullscreen="true" class="login">
+    <div padding class="top">
+        <ion-segment [(ngModel)]="authType">
+            <ion-segment-button value="L O G I N">
+                Login
+            </ion-segment-button>
+            <ion-segment-button value="S I G N U P">
+                Signup
+            </ion-segment-button>
+        </ion-segment>
+    </div>
+
+    <div padding *ngIf="error">
+        <p *ngIf="error" color="danger" ion-text class="error">{{ error._body }}</p>
+    </div>
+    <div [ngSwitch]="authType" padding>
+        <form *ngSwitchCase="'L O G I N'" [formGroup]="loginform" (ngSubmit)="login()">
+            <ion-item>
+                <ion-label stacked>Email</ion-label>
+                <ion-input type="email" formControlName="email"></ion-input>
+
+            </ion-item>
+
+            <ion-item>
+                <ion-label stacked>Password</ion-label>
+                <ion-input type="password" formControlName="password"></ion-input>
+            </ion-item>
+
+            <div padding>
+                <button block full ion-button [disabled]="!loginform.valid" type="submit">Login</button>
+            </div>
+
+        </form>
+
+        <form *ngSwitchCase="'S I G N U P'" [formGroup]="signup" (ngSubmit)="signupmd()">
+            <ion-item>
+                <ion-label stacked>Email</ion-label>
+                <ion-input type="text" formControlName="email"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label stacked>Password</ion-label>
+                <ion-input type="password" formControlName="password"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label stacked>First Name</ion-label>
+                <ion-input type="text" formControlName="firstName"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label stacked>Last Name</ion-label>
+                <ion-input type="text" formControlName="lastName"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label stacked>Phone Number</ion-label>
+                <ion-input type="tel" formControlName="phone"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label stacked>Id Card</ion-label>
+                <ion-input type="number" formControlName="idcard"></ion-input>
+            </ion-item>
+            <div>
+                <ion-label color="text" stacked>Gender</ion-label>
+
+                <ion-segment padding color="secondary" formControlName="gender">
+                    <ion-segment-button value="male">
+                        Male
+                    </ion-segment-button>
+                    <ion-segment-button value="female">
+                        Female
+                    </ion-segment-button>
+                </ion-segment>
+            </div>
+            <div padding>
+                <button block full ion-button type="submit">Signup</button>
+            </div>
+
+        </form>
+    </div>
+
+
+
+</ion-content>

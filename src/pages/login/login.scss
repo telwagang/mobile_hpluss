@@ -1,0 +1,15 @@
+    login {
+        ion-content .scroll-content {
+            padding-top: 0px !important;
+        }
+        ion-navbar .toolbar-background {
+            background: transparent !important;
+            border: none !important;
+        }
+        .login {
+            background-color: map-get($colors, background)
+        }
+        .top {
+            padding-top: 20% !important;
+        }
+    }

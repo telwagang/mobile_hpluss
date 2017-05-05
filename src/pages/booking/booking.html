@@ -1,0 +1,66 @@
+<ion-header color="transparent">
+    <ion-navbar color="transparent">
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-buttons end>
+            <ion-spinner *ngIf="spinner" color="white"></ion-spinner>
+
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content fullscreen="true">
+    <ion-list>
+        <ion-grid padding class="top">
+            <ion-row justify-content-center>
+                <ion-col col-9>
+                    <div>
+                        <h2 stacked color="white">Book</h2>
+                        <h1 color="white">appointment</h1>
+                    </div>
+                </ion-col>
+                <ion-col col-3>
+
+                </ion-col>
+            </ion-row>
+
+        </ion-grid>
+        <form class="form" [formGroup]="book" (ngSubmit)="senddata()">
+            <ion-list>
+                <ion-item class="specialty">
+                    <ion-label color="text" stacked>Specialty</ion-label>
+                    <ion-select okText="Okay" cancelText="Dismiss" formControlName="specialty">
+                        <ion-option value="default">Select one </ion-option>
+                        <ion-option *ngFor="let s of specialt " [value]="s">{{s}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label color="text" stacked>Choose Date</ion-label>
+                    <ion-datetime displayFormat="MMM DD YY" pickerFormat="MMM DD YYYY" min="2017-04-10" max="2017-07-31" formControlName="day">
+                    </ion-datetime>
+                </ion-item>
+                <div padding>
+                    <ion-label color="text" stacked>Available Times</ion-label>
+
+                    <ion-segment padding color="secondary" formControlName="time">
+                        <ion-segment-button value="earlymorning">
+                            8:00
+                        </ion-segment-button>
+                        <ion-segment-button value="morning">
+                            10:00
+                        </ion-segment-button>
+                        <ion-segment-button value="afternoon">
+                            1:00
+                        </ion-segment-button>
+                        <ion-segment-button value="evenning">
+                            5:00
+                        </ion-segment-button>
+                    </ion-segment>
+                </div>
+                <div padding>
+                    <button ion-button full block strong="true" color="secondary" item-right [disabled]="(count<0)" type="submit">View {{count}} </button>
+                </div>
+            </ion-list>
+        </form>
+    </ion-list>
+</ion-content>
